@@ -18,7 +18,7 @@ int main(int ac, char **av)
 	signal(SIGINT, handle_signal);
 	while (1)
 	{
-		write(1, "#cisfun$ ", 9);
+		write(1, "$ ", 2);
 		fflush(stdout);
 		read_input(&buffer, &size_buffer, stdin);
 		args = tokenize_buffer(buffer, size_buffer, i);
