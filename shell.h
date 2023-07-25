@@ -33,7 +33,7 @@ char *_strncpy(char *dest, const char *src, int n);
 char *_strncat(char *dest, const char *src, int n);
 void execute_command(char **args);
 int _strcmp(char *s1, char *s2);
-void handle_signal(void);
+void handle_signal(int signal);
 void handle_comments(char **args);
 char **tokenize_buffer(char *buffer, size_t size_buffer, int i);
 void myExitFunction(char **args, char *buffer);
