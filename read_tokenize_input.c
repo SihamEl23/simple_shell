@@ -17,7 +17,6 @@ void read_input(char **buf, size_t *size_buf, FILE *stream)
 	read_char = _getline(buf, size_buf, stream);
 	if (read_char == -1)
 	{
-		perror("getline");
 		exit(EXIT_FAILURE);
 	}
 }

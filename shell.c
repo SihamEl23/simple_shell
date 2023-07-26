@@ -12,13 +12,15 @@ int main(int ac, char **av)
 	char *buffer = NULL;
 	size_t size_buffer = 0;
 	char **args;
-	int i = 0, status = 0;
+	int i = 0, status = 0, stream = 0;
 	(void)ac, (void)av;
 
+	if (isatty(STDIN_FILENO))
+		stream = 1;
 	signal(SIGINT, handle_signal);
 	while (1)
 	{
-		if (isatty(STDIN_FILENO))
+		if (stream)
 		{
 			write(1, "$ ", 2);
 			fflush(stdout);
