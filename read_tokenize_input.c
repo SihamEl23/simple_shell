@@ -14,7 +14,7 @@ void read_input(char **buf, size_t *size_buf, FILE *stream)
 {
 	ssize_t read_char = 0;
 
-	read_char = getline(buf, size_buf, stream);
+	read_char = _getline(buf, size_buf, stream);
 	if (read_char == -1)
 	{
 		perror("getline");
@@ -37,7 +37,7 @@ char **tokenize_buffer(char *buffer, size_t size_buffer, int i)
 	char *tokens = NULL;
 	char **args = NULL;
 
-	tokens = strtok(buffer, " \t\n");
+	tokens = _strtok(buffer, " \t\n");
 	if (tokens == NULL)
 		return (NULL);
 
@@ -51,7 +51,7 @@ char **tokenize_buffer(char *buffer, size_t size_buffer, int i)
 	while (tokens != NULL)
 	{
 		args[i++] = tokens;
-		tokens = strtok(NULL, " \t\n");
+		tokens = _strtok(NULL, " \t\n");
 	}
 	args[i] = NULL;
 

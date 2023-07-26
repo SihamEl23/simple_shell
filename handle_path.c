@@ -13,7 +13,7 @@ char *handle_path(char *com)
 	char *token, *full_path;
 	struct stat st;
 
-	token = strtok(value, ":");
+	token = _strtok(value, ":");
 	while (token != NULL)
 	{
 		full_path = malloc(_strlen(token) + _strlen(com) + 2);
@@ -27,7 +27,7 @@ char *handle_path(char *com)
 		if (stat(full_path, &st) == 0)
 			return (full_path);
 		free(full_path);
-		token = strtok(NULL, ":");
+		token = _strtok(NULL, ":");
 	}
 	return (NULL);
 }
