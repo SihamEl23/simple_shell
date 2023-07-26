@@ -18,8 +18,11 @@ int main(int ac, char **av)
 	signal(SIGINT, handle_signal);
 	while (1)
 	{
-		write(1, "$ ", 2);
-		fflush(stdout);
+		if (isatty(STDIN_FILENO))
+		{
+			write(1, "$ ", 2);
+			fflush(stdout);
+		}
 		read_input(&buffer, &size_buffer, stdin);
 		args = tokenize_buffer(buffer, size_buffer, i);
 		if (args == NULL)
